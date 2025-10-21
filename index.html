@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Eventos Culturais</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎭 Sistema de Eventos Culturais</h1>
+            <p>Conectando comunidades através da cultura</p>
+        </div>
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showScreen('home')">🏠 Eventos</button>
+            <button class="nav-tab" onclick="showScreen('minhas-inscricoes')">📋 Minhas Inscrições</button>
+            <button class="nav-tab" onclick="showScreen('criar-evento')">➕ Criar Evento</button>
+            <button class="nav-tab" onclick="showScreen('relatorios')">📊 Relatórios</button>
+        </div>
+
+        <div class="content">
+            <!-- TELA: Eventos -->
+            <div id="home" class="screen active">
+                <h2>Eventos Disponíveis</h2>
+                <div class="search-bar">
+                    <input type="text" placeholder="🔍 Buscar eventos..." id="searchInput">
+                    <select id="categoryFilter">
+                        <option value="">Todas as categorias</option>
+                        <option value="musica">Música</option>
+                        <option value="teatro">Teatro</option>
+                        <option value="artes">Artes Visuais</option>
+                        <option value="danca">Dança</option>
+                        <option value="literatura">Literatura</option>
+                    </select>
+                    <button class="btn btn-primary" onclick="buscarEventos()">Buscar</button>
+                </div>
+                <div class="event-grid" id="eventGrid">
+                    <!-- Eventos serão carregados aqui -->
+                </div>
+            </div>
+
+            <!-- TELA: Minhas Inscrições -->
+            <div id="minhas-inscricoes" class="screen">
+                <h2>Minhas Inscrições</h2>
+                <p style="color: #666; margin-bottom: 30px;">Gerencie suas inscrições e check-ins</p>
+                <div id="inscricoesContainer">
+                    <!-- Inscrições serão carregadas aqui -->
+                </div>
+            </div>
+
+            <!-- TELA: Criar Evento -->
+            <div id="criar-evento" class="screen">
+                <h2>Criar Novo Evento</h2>
+                <p style="color: #666; margin-bottom: 30px;">Preencha os dados do evento cultural</p>
+                <form id="formEvento" onsubmit="criarEvento(event)">
+                    <div class="form-group">
+                        <label>Título do Evento *</label>
+                        <input type="text" required placeholder="Ex: Festival de Música Popular">
+                    </div>
+                    <div class="form-group">
+                        <label>Descrição</label>
+                        <textarea rows="4" placeholder="Descreva o evento..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Data e Horário *</label>
+                        <input type="datetime-local" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Local *</label>
+                        <input type="text" required placeholder="Ex: Praça Central">
+                    </div>
+                    <div class="form-group">
+                        <label>Categoria *</label>
+                        <select required>
+                            <option value="">Selecione...</option>
+                            <option value="musica">Música</option>
+                            <option value="teatro">Teatro</option>
+                            <option value="artes">Artes Visuais</option>
+                            <option value="danca">Dança</option>
+                            <option value="literatura">Literatura</option>
+                            <option value="cinema">Cinema</option>
+                            <option value="gastronomia">Gastronomia</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Capacidade Máxima *</label>
+                        <input type="number" required placeholder="Ex: 100" min="1">
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="gratuito" checked> Evento Gratuito
+                        </label>
+                    </div>
+                    <div class="form-group" id="valorGroup" style="display: none;">
+                        <label>Valor do Ingresso (R$)</label>
+                        <input type="number" step="0.01" placeholder="0,00">
+                    </div>
+                    <button type="submit" class="btn btn-primary">🎉 Publicar Evento</button>
+                    <button type="reset" class="btn btn-secondary">🔄 Limpar</button>
+                </form>
+            </div>
+
+            <!-- TELA: Relatórios -->
+            <div id="relatorios" class="screen">
+                <h2>Relatórios e Estatísticas</h2>
+                <p style="color: #666; margin-bottom: 30px;">Acompanhe o desempenho dos seus eventos</p>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">12</div>
+                        <div class="stat-label">Eventos Ativos</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">347</div>
+                        <div class="stat-label">Participantes</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">4.7</div>
+                        <div class="stat-label">Avaliação Média</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">89%</div>
+                        <div class="stat-label">Taxa de Comparecimento</div>
+                    </div>
+                </div>
+                <h3 style="margin-top: 40px; margin-bottom: 20px;">Eventos por Categoria</h3>
+                <div style="background: #f8f9fa; padding: 30px; border-radius: 15px;">
+                    <div style="margin-bottom: 20px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                            <span>🎵 Música</span>
+                            <span><strong>5 eventos</strong> (142 inscritos)</span>
+                        </div>
+                        <div style="background: #dee2e6; height: 10px; border-radius: 5px; overflow: hidden;">
+                            <div style="background: #667eea; width: 42%; height: 100%;"></div>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                            <span>🎭 Teatro</span>
+                            <span><strong>3 eventos</strong> (89 inscritos)</span>
+                        </div>
+                        <div style="background: #dee2e6; height: 10px; border-radius: 5px; overflow: hidden;">
+                            <div style="background: #764ba2; width: 26%; height: 100%;"></div>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                            <span>🎨 Artes Visuais</span>
+                            <span><strong>4 eventos</strong> (116 inscritos)</span>
+                        </div>
+                        <div style="background: #dee2e6; height: 10px; border-radius: 5px; overflow: hidden;">
+                            <div style="background: #667eea; width: 32%; height: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

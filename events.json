@@ -1,0 +1,80 @@
+[
+    {
+        "id": 1,
+        "titulo": "Festival de Música Popular",
+        "descricao": "Grande festival com artistas locais da região",
+        "data": "2025-10-27T18:00:00",
+        "local": "Praça Central",
+        "categoria": "musica",
+        "icone": "🎵",
+        "capacidade": 100,
+        "inscritos": 73,
+        "gratuito": true,
+        "avaliacao": 4.8
+    },
+    {
+        "id": 2,
+        "titulo": "Oficina de Teatro Comunitário",
+        "descricao": "Aprenda técnicas básicas de teatro e improvisação",
+        "data": "2025-11-03T14:00:00",
+        "local": "Centro Cultural",
+        "categoria": "teatro",
+        "icone": "🎭",
+        "capacidade": 30,
+        "inscritos": 28,
+        "gratuito": true,
+        "avaliacao": 4.9
+    },
+    {
+        "id": 3,
+        "titulo": "Exposição de Arte Contemporânea",
+        "descricao": "Obras de artistas locais emergentes",
+        "data": "2025-11-10T10:00:00",
+        "local": "Galeria Municipal",
+        "categoria": "artes",
+        "icone": "🎨",
+        "capacidade": 50,
+        "inscritos": 15,
+        "gratuito": true,
+        "avaliacao": 4.6
+    },
+    {
+        "id": 4,
+        "titulo": "Sarau de Poesia",
+        "descricao": "Noite de declamação e música poética",
+        "data": "2025-10-25T19:30:00",
+        "local": "Biblioteca Comunitária",
+        "categoria": "literatura",
+        "icone": "📚",
+        "capacidade": 40,
+        "inscritos": 35,
+        "gratuito": true,
+        "avaliacao": 4.7
+    },
+    {
+        "id": 5,
+        "titulo": "Mostra de Cinema Independente",
+        "descricao": "Curtas-metragens de cineastas da região",
+        "data": "2025-11-15T20:00:00",
+        "local": "Cine Teatro",
+        "categoria": "cinema",
+        "icone": "🎬",
+        "capacidade": 80,
+        "inscritos": 52,
+        "gratuito": true,
+        "avaliacao": 4.5
+    },
+    {
+        "id": 6,
+        "titulo": "Aula Aberta de Dança Urbana",
+        "descricao": "Hip hop, breaking e street dance",
+        "data": "2025-10-28T16:00:00",
+        "local": "Quadra Poliesportiva",
+        "categoria": "danca",
+        "icone": "💃",
+        "capacidade": 60,
+        "inscritos": 45,
+        "gratuito": true,
+        "avaliacao": 4.9
+    }
+]
